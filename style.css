@@ -1,0 +1,196 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all .5s ease-in;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+    translate: 0 -10vh;
+    background: url(https://cdn.britannica.com/70/191970-131-A85628DA/Color-wheel-light-color-spectrum.jpg) no-repeat center/cover;
+}
+:root{
+    --_size: min(400px, min(84vw, 64vh));
+    --_conic_1: conic-gradient(from 0deg at 50% 50%, 
+    #0d090a 0%, #0537dc 7%, #23c3ec 14%, #daffed 17%, #eddb1a 18%, #4c0c09 19%, #0d0a0d 20%, #02259b 21%, #01c9fc 22%, #f8faf9 24%, #f8faf9 27%, #ffe202 28%, #f72015 30%, #f72015 32%, #980055 36%, #0d090a 40%, #0d090a 49%, #02259b 57%, #01c9fc 64%, #f8faf9 67%, #ffeb00 68%, #f72015 69%, #0d0a0d 70%, #02259b 71%, #01c9fc 72%, #f8faf9 74%, #f8faf9 77%, #ffe202 78%, #f72015 80%, #f72015 82%, #980055 86%, #0d090a 90%, #0d090a 98%);
+    --_conic_2: conic-gradient(from 0deg at 50% 50%, #130b1a 0%, #697a67 7%, #534171 14%, #130b1a 21%, #9471ac 28%, #30264a 35%, #4e4c81 42%, #8fdbef 49%, #f5f5fb 56%, #7980c6 63%, #2b292e 70%, #a2a199 77%, #f5f2df 84%, #674e60 91%, #130b1a 100%);
+    --_conic_3: conic-gradient(from 0deg at 50% 50%, #fffece 0%, #ffa834 1%, #f7fa14 5%, #e8fd81 9%, #fafe98 11%, #fafe98 13%, #ffb128 15%, #fbfa2b 18%, #fbfa2b 24%, #fbfdea 25%, #fbfdea 30%, #fceb1d 31%, #ffa351 33%, #c3c1f1 36%, #c5eeef 40%, #a0e8f5 42%, #9bf7f0 46%, #a1fbd2 49%, #bab3fe 52%, #98f8cd 58%, #abf443 60%, #f5e927 61%, #ff9c52 62%, #fa4cb7 65%, #9145e9 67%, #0173f4 70%, #8daafd 72%, #8febbd 75%, #fa9d9d 77%, #daafbb 78%, #fa9d9d 80%, #fc6d83 82%, #fe8349 87%, #fbfe17 93%, #fffece 100%);
+}
+.container, .container div{
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0%;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    border-radius: 1000px;
+    background-size: 100% 100%;
+    background-position: 0px 0px;
+    background-image: var(--_conic_1);
+    transition: all 2s ease-in;
+}
+.container.alt1,
+.container.alt1 div {
+    background-image: var(--_conic_2);
+}
+.container.alt2,
+.container.alt2 div {
+    background-image: var(--_conic_3);
+}
+.container-outlines.container-outlines div{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    border-radius: 1000px;
+    background-size: 100% 100%;
+    background-position: 0px 0px ;
+}
+.container-outlines{
+    box-shadow:3px 3px 5px 1px #1a1a1a81,10px 10px 10px 1px #35353581;;
+}
+.container-outlines div{
+    box-shadow:0 0 2px 1px #bbbbbb81, 1px 1px 1px 1px #ffffff90, inset 0 0 3px 0px #0f0f0f;;
+}
+.container,.container-outlines {
+    width: var(--_size);
+    height: var(--_size);
+}
+
+input[type=range].nestRange {
+    top: calc(var(--_size)/0.65);
+}
+input[type=range] {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: calc(var(--_size)/0.75);
+    margin: auto;
+    width: var(--_size);
+    height: fit-content;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: #dddddd22;
+    box-shadow: 
+    0 0 2px 2px #bbb8,
+    inset 0 0 4px 1px #fff8,
+    inset 0 0 5px 5px #bbb8;
+    height: 1rem;
+    border-radius: 20px;
+    overflow: hidden;
+}
+input[type="range"]::-moz-range-track {
+    background: #dddddd;
+    box-shadow: 
+    0 0 2px 2px #bbb,
+    inset 0 0 4px 1px #fff,
+    inset 0 0 5px 5px #bbb;
+    height: 1rem;
+    border-radius: 20px;
+    overflow: hidden;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 30px;
+    height: 100%;
+    border-radius: 100px;
+    background: var(--_conic_2);
+    scale:1;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 
+    0px 2px 3px 0px #444444,
+    inset 0 0 4px 1px #ffffff;
+}
+input[type=range]::-webkit-slider-thumb:hover {
+    box-shadow: 
+    0px 2px 4px 1px #3f3f3f,
+    inset 0 0 4px 1px #ffffff;
+}
+.options {
+    position: absolute;
+    top: 12vh;
+    left: 2vh;
+    display: flex;
+    width: fit-content;
+    gap: 12px;
+}
+.options > div {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.3;
+    transition: all 0.2s ease-in-out;
+}
+.options > div:hover {
+    scale: 1.2;
+    opacity: 1;
+}
+.option1 {
+    background-image: var(--_conic_1);
+}
+.option2 {
+    background-image: var(--_conic_2);
+}
+.option3 {
+    background-image: var(--_conic_3);
+}
+
+.toggle-container {
+    position: absolute;
+    top: 12vh;
+    right: 20px;
+	  opacity: 0.3;
+	  transition: opacity 0.2s ease-in-out;
+}
+.toggle-container:hover {
+		opacity: 0.5;
+}
+.toggle {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+.label {
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 34px;
+    background-color: #898989;
+    border-radius: 34px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.label::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 28px;
+    height: 28px;
+    border-radius: 28px;
+    background-color: white;
+    transition: transform 0.3s;
+}
+
+.toggle:checked + .label {
+    background-color: #4F5B66;
+}
+
+.toggle:checked + .label::before {
+    transform: translateX(26px);
+}
